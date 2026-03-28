@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-inter: "Inter", Arial, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f4f0;
+  color: #1a1a1a;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* React Flow base overrides */
+.react-flow {
+  background: #f5f4f0;
+}
+
+.react-flow__attribution {
+  display: none;
+}
+
+.react-flow__handle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.react-flow__edge-path,
+.react-flow__connection-path {
+  stroke: #cccccc;
+  stroke-width: 1.5;
+}
+
+.react-flow__edge.highlighted .react-flow__edge-path {
+  stroke: #9b8fcc;
+  stroke-width: 2;
+}
+
+.react-flow__edge-text {
+  font-size: 10px;
+  fill: #999490;
+}
+
+.react-flow__edge-textbg {
+  fill: #f5f4f0;
+}
+
+.react-flow__node {
+  cursor: pointer;
+}
+
+.react-flow__controls {
+  border: 1px solid #e8e8e4;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.react-flow__controls-button {
+  background: #ffffff;
+  border: none;
+  border-bottom: 1px solid #e8e8e4;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none;
+}
+
+.react-flow__controls-button svg {
+  fill: #666666;
+}
+
+/* Detail panel slide-in */
+.detail-panel-enter {
+  transform: translateX(100%);
+}
+.detail-panel-enter-active {
+  transform: translateX(0);
+  transition: transform 0.25s ease;
 }
