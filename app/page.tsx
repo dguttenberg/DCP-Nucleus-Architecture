@@ -7,6 +7,7 @@ import NavBar, { type Mode } from "@/components/NavBar";
 import ArchitectureCanvas from "@/components/ArchitectureCanvas";
 import DetailPanel from "@/components/DetailPanel";
 import NarrativeView from "@/components/NarrativeView";
+import RoadmapView from "@/components/RoadmapView";
 
 type Selected =
   | { type: "node"; item: ArchNode }
@@ -28,7 +29,7 @@ export default function Home() {
 
   const handleModeChange = useCallback((newMode: Mode) => {
     setMode(newMode);
-    if (newMode === "narrative") setSelected(null);
+    if (newMode !== "architecture") setSelected(null);
   }, []);
 
   const switchToArchitecture = useCallback(() => {
@@ -44,6 +45,8 @@ export default function Home() {
             chapters={narrative}
             onSwitchToArchitecture={switchToArchitecture}
           />
+        ) : mode === "roadmap" ? (
+          <RoadmapView />
         ) : (
           <ArchitectureCanvas
             nodes={nodes}

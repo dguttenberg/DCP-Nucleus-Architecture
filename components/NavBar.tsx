@@ -1,6 +1,6 @@
 "use client";
 
-export type Mode = "narrative" | "architecture";
+export type Mode = "narrative" | "architecture" | "roadmap";
 
 interface NavBarProps {
   mode: Mode;
@@ -8,8 +8,9 @@ interface NavBarProps {
 }
 
 const MODES: { key: Mode; label: string }[] = [
-  { key: "narrative", label: "Narrative" },
+  { key: "narrative", label: "Read Me First" },
   { key: "architecture", label: "Architecture" },
+  { key: "roadmap", label: "Roadmap" },
 ];
 
 export default function NavBar({ mode, onModeChange }: NavBarProps) {
